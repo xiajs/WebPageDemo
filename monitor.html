@@ -2,7 +2,6 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <!--<meta http-equiv="refresh" content="10">  10秒钟刷新一次  -->
     <title></title>
 
     <style type="text/css">
@@ -11,13 +10,21 @@
             position:absolute;
             left:100px;
             top:100px;
-            z-index:-1;
+            z-index:1;
         }
         .iconclass1
         {
             position:absolute;
             left:10px;
             top:105px;
+            z-index:2;
+            font-size: 4px
+        }
+        .iconclass2
+        {
+            position:relative;
+            left:200px;
+            top:-200px;
             z-index:2;
             font-size: 4px
         }
@@ -46,13 +53,17 @@
                 flag = 0;
                 element.src = "img/pink.png";
             }
+        }
 
+        function stopTimer(){
+            window.clearInterval(timer);//关闭定时器
         }
     </script>
 </head>
 <body>
-<a><img class="bgclass" src="img/shimingmonitor.png" /></a>
+<a><img class="bgclass" src="img/shimingmonitor.png" onclick="stopTimer()" /></a>
 <div class="level2">成功率：90%  平均时长：100ms</div>
-<div class="iconclass1"><img id="img_1"  src="img/green.png" /><br/></div>
+<div class="iconclass1"><img id="img_1"  src="img/green.png"  /><br/></div>
+<div class="iconclass2"><img id="img_2"  src="img/bigdot.png"  /><br/></div>
 </body>
 </html>

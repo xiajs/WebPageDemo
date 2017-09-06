@@ -1,0 +1,26 @@
+说明：实现网页定时自动刷新的几种方案
+
+1、HTML <meta> 标签
+ <meta http-equiv="refresh" content="10">  <!-- 10秒钟刷新一次  -->
+
+2、HTML DOM setInterval() 方法
+        //定义定时器 timer
+        var timer;
+        //开启定时器
+        timer=window.setInterval("timerClick()",1000);
+
+        var flag = 0;
+        function timerClick(){
+            var element = document.getElementById('img_1');
+            if(flag == 0){
+                flag = 1;
+                element.src = "img/green.png";
+            }else{
+                flag = 0;
+                element.src = "img/pink.png";
+            }
+        }
+
+        function stopTimer(){
+            window.clearInterval(timer);//关闭定时器
+        }

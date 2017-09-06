@@ -1,0 +1,99 @@
+网上教程：http://www.w3school.com.cn/css/css_syntax.asp
+
+CSS 语法：
+CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。
+selector {declaration1; declaration2; ... declarationN }
+
+外部样式表：
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css" />
+</head>
+
+内部样式表：
+<head>
+<style type="text/css">
+  hr {color: sienna;}
+  p {margin-left: 20px;}
+  body {background-image: url("images/back40.gif");}
+</style>
+</head>
+
+内联样式：
+<p style="color: sienna; margin-left: 20px">
+This is a paragraph
+</p>
+
+多重样式：
+如果某些属性在不同的样式表中被同样的选择器定义，那么属性值将从更具体的样式表中被继承过来。
+例如，外部样式表拥有针对 h3 选择器的三个属性：
+h3 {
+  color: red;
+  text-align: left;
+  font-size: 8pt;
+  }
+而内部样式表拥有针对 h3 选择器的两个属性：
+h3 {
+  text-align: right;
+  font-size: 20pt;
+  }
+假如拥有内部样式表的这个页面同时与外部样式表链接，那么 h3 得到的样式是：
+color: red;
+text-align: right;
+font-size: 20pt;
+
+
+1、选择器的分组，被分组的选择器就可以分享相同的声明。用逗号将需要分组的选择器分开。
+案例：
+h1,h2,h3,h4,h5,h6 {
+  color: green;
+  }
+
+2、派生选择器，派生选择器允许你根据文档的上下文关系来确定某个标签的样式。
+案例：
+li strong {
+    font-style: italic;
+    font-weight: normal;
+  }
+<p><strong>我是粗体字，不是斜体字，因为我不在列表当中，所以这个规则对我不起作用</strong></p>
+<ol>
+<li><strong>我是斜体字。这是因为 strong 元素位于 li 元素内。</strong></li>
+<li>我是正常的字体。</li>
+</ol>
+
+3、id 选择器，id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
+案例：
+#red {color:red;}
+#green {color:green;}
+<p id="red">这个段落是红色。</p>
+<p id="green">这个段落是绿色。</p>
+
+4、类选择器
+案例：
+.center {text-align: center}
+<h1 class="center">
+This heading will be center-aligned
+</h1>
+
+和 id 一样，class 也可被用作派生选择器：
+案例：类名为 fancy 的更大的元素内部的表格单元都会以灰色背景显示橙色文字。
+.fancy td {
+	color: #f60;
+	background: #666;
+	}
+
+元素也可以基于它们的类而被选择：
+案例：类名为 fancy 的表格单元将是带有灰色背景的橙色。
+td.fancy {
+	color: #f60;
+	background: #666;
+	}
+<td class="fancy">
+
+
+5、属性选择器，对带有指定属性的 HTML 元素设置样式。
+案例：为带有 title 属性的所有元素设置样式
+[title]
+{
+color:red;
+}
+
