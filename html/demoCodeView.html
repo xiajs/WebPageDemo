@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style type="text/css">
+        pre{
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            overflow: auto;
+            word-break: break-all;
+            word-wrap: break-word;
+            font-size: 12px;
+            padding: 0;
+            margin: 0;
+            background: #f0f0f0;
+            line-height: 20px; /* 行距 */
+            background: url(../img/bigdot.jpg)  repeat-y left top;  /* repeat-x */
+            width: 600px;
+            overflow: auto; /* 超出宽度出现滑动条 */
+            overflow-Y:hidden; /* 作用是隐藏IE的右侧滑动条 */
+        }
+        pre.sourceCode{
+            border: 1px solid #000000;
+            margin-left: 2em;
+        }
+        pre.sourceCode ol{
+            padding: 0;
+            margin: 0;
+            margin-left: 25px;
+        }
+        pre.sourceCode li{
+            padding: 2px 10px;
+            border-left: 2px groove silver;
+            color: #333333;
+        }
+        pre.sourceCode li.even{
+            background: #9fb5de
+        }
+        pre.sourceCode li.odd{
+            background: #bce8f1;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            var preElements = document.getElementsByTagName("pre");
+            for(var i=0; i<preElements.length; i++){
+                var target = preElements.item(i);
+                if(target.className != "sourceCode"){
+                    continue;
+                }
+                var content = target.firstChild.nodeValue;
+                var linesArray = content.split(String.fromCharCode(13));
+                if(linesArray.length == 1){
+                    linesArray = content.split(String.fromCharCode(10));
+                }
+
+                var olContainer = document.createElement("ol");
+                var index = 1;
+                for(var j=0; j<linesArray.length; j++){
+                    var liContainer = document.createElement("li");
+                    liContainer.className = index++ % 2 ? "odd":"even";
+                    var spanContainer = document.createElement("span");
+                    var aText = document.createTextNode(linesArray[j]);
+                    spanContainer.appendChild(aText);
+                    liContainer.appendChild(spanContainer);
+                    olContainer.appendChild(liContainer);
+                }
+                while(target.firstChild){
+                    target.removeChild(target.firstChild);
+                }
+
+                target.appendChild(olContainer);
+            }
+
+        }
+    </script>
+</head>
+<body>
+<pre class="sourceCode">
+    public Set&lt;String&gt; getDistinctTags() {
+     
+        Set&lt;String&gt result = new HashSet&lt;&gt();
+         
+            for (Article article : articles) {
+                result.addAll(article.getTags());
+            }
+         
+            return result;
+        }
+</pre>
+</body>
+</html>

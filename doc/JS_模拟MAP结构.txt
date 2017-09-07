@@ -1,0 +1,31 @@
+在javascript中，对象本身就是一种Map结构。
+
+//定义
+var map={
+    key1:'abc',
+    key2:'def'
+};
+
+//动态赋值方法1：
+map.key3='12';
+
+//动态赋值方法2：
+var key='key4';
+map[key]='34';
+
+----------------------------------
+var key1 = '动态key1';
+var key2 = '动态key2';
+var map = {};
+map[key1] = 1;
+map[key2] = 2;
+
+console.log(map[key1]);//结果是1.
+console.log(map[key2]);//结果是2.
+
+//如果遍历map
+for(var prop in map){
+    if(map.hasOwnProperty(prop)){
+        console.log('key is ' + prop +' and value is' + map[prop]);
+    }
+}

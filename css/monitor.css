@@ -1,0 +1,39 @@
+
+.level2 { position: absolute; top: 50px; left: 860px; width: 200px; height: 40px; z-index: 1; font-size: 4px }
+.bgclass img {
+    position:absolute;
+    left:100px;
+    top:100px;
+    z-index:1;
+}
+.iconclass1
+{
+    position:absolute;
+    left:10px;
+    top:105px;
+    z-index:2;
+    font-size: 4px
+}
+.iconclass2
+{
+    position:absolute;
+    left:110px;
+    top:105px;
+    z-index:2;
+    font-size: 4px
+}
+.iconclass3
+{
+    position:absolute;
+    left:196px;
+    top:105px;
+    z-index:2;
+    font-size: 4px
+}
+
+/* 鼠标移动到图片上后，图片放大1.5倍
+a:hover img{
+    -webkit-transform:scale(1.5,1.5);
+    -moz-transform:scale(1.5,1.5);
+    -transform:scale(1.5,1.5);
+}*/
