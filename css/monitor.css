@@ -1,32 +1,32 @@
 
 .level2 { position: absolute; top: 50px; left: 860px; width: 200px; height: 40px; z-index: 1; font-size: 4px }
 .bgclass img {
-    position:absolute;
+    position:relative;
     left:100px;
     top:100px;
     z-index:1;
 }
 .iconclass1
 {
-    position:absolute;
-    left:10px;
-    top:105px;
+    position:relative;
+    left:2px;
+    top:-459px;
     z-index:2;
     font-size: 4px
 }
 .iconclass2
 {
     position:absolute;
-    left:110px;
-    top:105px;
+    left:117px;
+    top:97px;
     z-index:2;
     font-size: 4px
 }
 .iconclass3
 {
     position:absolute;
-    left:196px;
-    top:105px;
+    left:203px;
+    top:97px;
     z-index:2;
     font-size: 4px
 }

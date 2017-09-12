@@ -1,4 +1,5 @@
 网上教程：http://www.w3school.com.cn/css/css_syntax.asp
+各种案例：http://www.runoob.com/css/css-examples.html
 
 CSS 语法：
 CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。
@@ -97,3 +98,5 @@ td.fancy {
 color:red;
 }
 
+标签可以通过指定多个class达到应用多个class指定的样式：
+案例：<div class="col-md-2 level2"> 该div标签会同时应用 col-md-2 和 level2 两个类的样式。

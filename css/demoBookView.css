@@ -1,0 +1,102 @@
+
+.book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.book-body {
+    overflow-y: auto;
+    color: #000000;
+    background: #ffffff;
+    -webkit-transition: left 250ms ease;
+    -moz-transition: left 250ms ease;
+    -o-transition: left 250ms ease;
+    transition: left 250ms ease;
+    font-size: 14px;
+}
+
+.book.with-summary .book-summary {
+    left: 0px;
+}
+
+.book-summary {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    z-index: 1;
+    overflow-y: auto;
+    width: 300px;
+    color: #364149;
+    border-right: 1px solid rgba(0,0,0,.07);
+    background: #fafafa;
+    -webkit-transition: left 250ms ease;
+    -moz-transition: left 250ms ease;
+    -o-transition: left 250ms ease;
+    transition: left 250ms ease;
+    float:left;
+    font-size: 12px;
+}
+
+
+#book-search-input input {
+    background: #fff;
+    border: none; /*去除边框*/
+    outline:none; /*去除选中后出现的蓝边框*/
+    width: 100%;
+    height: 30px;
+}
+nav ul{
+    padding: 2px;
+    margin: 0px;
+}
+
+li{
+    list-style:none ;
+    padding: 6px;
+}
+
+a{
+    color: #364149; /*设置超链接的默认文字颜色*/
+}
+
+.active a{
+    color: deepskyblue;
+}
+
+.navigation-next{
+    float: right;
+}
+
+.dropdown-menu{
+    display:none; /* 下拉框默认隐藏 */
+}
+
+.book-header h1{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    font-size: 16px;
+    text-align: center;
+    /*  border: solid 1px black; */
+}
+
+.pull-left{
+    float: left;
+}
+
+.pull-right{
+    float: right;
+}
+
+.book-header a{
+ margin-left: 20px;
+}
+
+h1 a{
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+.js-toolbar-action{
+}

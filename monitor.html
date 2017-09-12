@@ -3,6 +3,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/monitor.css" />
     <style type="text/css">
     </style>
@@ -35,15 +38,22 @@
     </script>
 </head>
 <body>
-<div class="level2">
-    <li>成功率：90%  平均时长：100ms</li>
-    <li>成功率：90%  平均时长：100ms</li>
-    <li>成功率：90%  平均时长：100ms</li>
-    <li>成功率：90%  平均时长：100ms</li>
-</div>
-<a><img class="bgclass" src="img/shimingmonitor.png" onclick="stopTimer()" /></a>
-<div class="iconclass1"><img id="img_1"  src="img/pink.png"  /><br/></div>
-<div class="iconclass2"><img id="img_2"  src="img/green.png"  /><br/></div>
-<div class="iconclass3"><img id="img_3"  src="img/green.png"  /><br/></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10" id="myScrollspy">
+
+            <a><img class="bgclass" src="img/shimingmonitor.png" onclick="stopTimer()" /></a>
+            <div class="iconclass1"><img id="img_1"  src="img/pink.png"  /><br/></div>
+            <div class="iconclass2"><img id="img_2"  src="img/green.png"  /><br/></div>
+            <div class="iconclass3"><img id="img_3"  src="img/green.png"  /><br/></div>
+
+        </div>
+        <div class="col-md-2 level2">
+            <li>成功率：90%  平均时长：100ms</li>
+            <li>成功率：90%  平均时长：100ms</li>
+            <li>成功率：90%  平均时长：100ms</li>
+            <li>成功率：90%  平均时长：100ms</li>
+        </div>
+    </div>
 </body>
 </html>
