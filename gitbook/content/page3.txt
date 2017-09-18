@@ -1,0 +1,16 @@
+<section class="normal markdown-section">
+
+                                <h1 id="提问的智慧">提问的智慧</h1>
+<p>我推荐过无数次的一篇文章, <a href="http://wiki.woodpecker.org.cn/moin/AskForHelp/" target="_blank">提问的智慧</a></p>
+<p>详细阐述了一个"好问题"的方法</p>
+<h2 id="一个好问题应该带下面的信息">一个好问题应该带下面的信息:</h2>
+<ul>
+<li>完整的Log信息</li>
+<li>代码片段</li>
+<li>各种版本号</li>
+<li>场景</li>
+</ul>
+<p>Nutz社区 <a href="https://nutz.cn" target="_blank">https://nutz.cn</a> 已经积累了大量的提问,也许你的疑问已经解答过哦</p>
+
+
+                                </section>

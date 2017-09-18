@@ -1,21 +1,32 @@
 
-.level2 { position: absolute; top: 50px; left: 860px; width: 200px; height: 40px; z-index: 1; font-size: 4px }
+.level2 { position: absolute; top: 50px; left: 860px; width: 200px; height: 400px; z-index: 1; font-size: 4px }
+
+.solidborder{
+
+    border: solid 1px #000000;
+}
+
+.callBoard{
+    padding: 6px;
+    font-size: 12px;
+    height: 609px;
+    list-style:none ;
+}
+
 .bgclass img {
     position:relative;
     left:100px;
     top:100px;
     z-index:1;
 }
-.iconclass1
-{
+.iconclass1 {
     position:relative;
     left:2px;
     top:-459px;
     z-index:2;
     font-size: 4px
 }
-.iconclass2
-{
+.iconclass2 {
     position:absolute;
     left:117px;
     top:97px;
@@ -37,3 +48,63 @@ a:hover img{
     -moz-transform:scale(1.5,1.5);
     -transform:scale(1.5,1.5);
 }*/
+
+#idAnimate {
+    position: absolute;
+    left:82px;
+    top:341px;
+    z-index:5;
+    background:red;
+    height:5px;
+    width:5px;
+    border-radius: 25px;
+}
+
+/* CSS3 动画 */
+#idAnimate2 {
+    position: absolute;
+    left:82px;
+    top:121px;
+    z-index:5;
+    background:red;
+    height:5px;
+    width:5px;
+    border-radius: 25px;
+
+    animation-name:myfirst;
+    animation-duration:5s;
+    animation-timing-function:linear;
+    animation-delay:0s;
+    animation-iteration-count:infinite;
+    animation-play-state:running;
+    animation-direction:normal;
+
+    /* Safari and Chrome: */
+    -webkit-animation-name:myfirst;
+    -webkit-animation-duration:5s;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-delay:0s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-direction:normal;
+    -webkit-animation-play-state:running;
+
+}
+
+
+@keyframes myfirst
+{
+    0%   {background:red; left:82px; top:121px;}
+    25%  {background:yellow; left:323px; top:121px;}
+    50%  {background:blue; left:323px; top:341px;}
+    75%  {background:green; left:182px; top:341px;}
+    100% {background:red; left:82px; top:341px;}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+    0%   {background:red; left:82px; top:121px;}
+    25%  {background:yellow; left:323px; top:121px;}
+    50%  {background:blue; left:323px; top:341px;}
+    75%  {background:green; left:182px; top:341px;}
+    100% {background:red; left:82px; top:341px;}
+}

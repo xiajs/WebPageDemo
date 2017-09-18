@@ -1,0 +1,18 @@
+<section class="normal markdown-section">
+
+                                <h1 id="为什么写这本书">为什么写这本书</h1>
+<h2 id="长期以来-nutz的主要文档">长期以来, Nutz的主要文档</h2>
+<ul>
+<li><a href="http://nutzam.com/core/nutz_preface.html" target="_blank">Nutz手册</a></li>
+<li><a href="http://wendal.net/tags/#Nutz-ref" target="_blank">Wendal博客上的Nutz分类</a></li>
+</ul>
+<h2 id="这些文档均不是引导式的而我之前做的各种努力也是针对特定的问题">这些文档均不是引导式的,而我之前做的各种努力也是针对特定的问题:</h2>
+<ul>
+<li><a href="http://my.oschina.net/wendal/blog?catalog=33978" target="_blank">Nutz每日一发</a></li>
+<li><a href="http://nutzam.com/core/faq/common_qa_1.html" target="_blank">社区常见问答 Part 1</a></li>
+</ul>
+<h2 id="所以我尝试用这种引导式的指南让大家正确使用nutz按nutz的思路来使用nutz">所以,我尝试用这种引导式的指南,让大家<em>正确</em>使用nutz,按nutz的思路来使用nutz</h2>
+<p>这本书正在紧张编著中,内容随时更新,更新进度主要看wendal的心情,哈哈</p>
+
+
+                                </section>

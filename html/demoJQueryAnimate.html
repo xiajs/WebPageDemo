@@ -3,13 +3,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/monitor.css" />
-    <style type="text/css">
-    </style>
-    <script>
+    <script type="application/javascript">
+
         //定义定时器 timer
         var timer;
         //开启定时器
@@ -25,10 +22,10 @@
             var element = document.getElementById(vMapImgs['营业厅APP']);
             if(flag == 0){
                 flag = 1;
-                element.src = "img/green.png";
+                element.src = "../img/green.png";
             }else{
                 flag = 0;
-                element.src = "img/pink.png";
+                element.src = "../img/pink.png";
             }
 
         }
@@ -36,6 +33,7 @@
         function stopTimer(){
             window.clearInterval(timer);//关闭定时器
         }
+
         //jquery实现动画效果
         function moveToRight(){
             $("#idAnimate").show();
@@ -52,26 +50,28 @@
         });
 
     </script>
+
+    <style type="text/css">
+
+        #idAnimate {
+            position: absolute;
+            left:82px;
+            top:41px;
+            z-index:5;
+            background:red;
+            height:5px;
+            width:5px;
+            border-radius: 25px;
+        }
+
+    </style>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 solidborder" id="myScrollspy">
-            <a><img class="bgclass" src="img/shimingmonitor.png" onclick="stopTimer()" /></a>
-            <div class="iconclass1"><img id="img_1"  src="img/pink.png"  /><br/></div>
-            <div class="iconclass2"><img id="img_2"  src="img/green.png"  /><br/></div>
-            <div class="iconclass3"><img id="img_3"  src="img/green.png"  /><br/></div>
 
-            <div id="idAnimate" ></div>
-            <div id="idAnimate2" ></div>
-        </div>
-        <div class="col-md-2  solidborder callBoard ">
-            <li>成功率：90%  平均时长：100ms</li>
-            <li>成功率：90%  平均时长：100ms</li>
-            <li>成功率：90%  平均时长：100ms</li>
-            <li>成功率：90%  平均时长：100ms</li>
+<div class="iconclass1"><img id="img_1"  src="../img/pink.png"  /><br/></div>
+<div class="iconclass2"><img id="img_2"  src="../img/green.png"  /><br/></div>
+<div class="iconclass3"><img id="img_3"  src="../img/green.png"  /><br/></div>
 
-        </div>
-    </div>
+<div id="idAnimate" ></div>
 </body>
 </html>

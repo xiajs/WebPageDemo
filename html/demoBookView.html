@@ -39,6 +39,7 @@
 
 
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../js/xbook.js"></script>
 
 </head>
 <body>
@@ -222,6 +223,7 @@
                             </section>
 
                         </div>
+                        <!--
                         <div class="search-results">
                             <div class="has-results">
                                 <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
@@ -231,15 +233,16 @@
                                 <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
                             </div>
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
 
         </div>
-        <a class="navigation navigation-prev " aria-label="Previous page: 简介" href="../">
+        <a class="navigation navigation-prev " aria-label="Previous page: 简介" href="javascript:void(0);" onclick="onClickPreBnt()">
             <i class="fa fa-angle-left"></i>
         </a>
-        <a class="navigation navigation-next " style="margin-right: 0px;" aria-label="Next page: 为什么写这本书" href="whythisbook.html">
+        <a class="navigation navigation-next " style="margin-right: 0px;" aria-label="Next page: 为什么写这本书" href="javascript:void(0);" onclick="onClickNextBnt()">
             <i class="fa fa-angle-right"></i>
         </a>
 
@@ -247,21 +250,84 @@
 
     <script>
         var preWidth = 0;
+        var prePostion = 0;
         function onClickBnt(){
             if(preWidth == 0){
                 preWidth =  $(".book-summary").css("width");
                 $(".book-summary").css("width","0px");
+
+                prePostion = $(".navigation-prev").css("left");
+                $(".navigation-prev").css("left","10px");
             }else{
                 $(".book-summary").css("width",preWidth);
+                $(".navigation-prev").css("left",prePostion);
                 preWidth = 0;
+                prePostion = 0;
             }
             //alert("xxx click");
         }
-/*        var gitbook = gitbook || []; //如果gitbook为null或undefined,则将gitbook初始化空对象(即{}),否则gitbook不变。目的是防止gitbook为null或未定义的错误。
 
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"前言","level":"1.2","depth":1,"next":{"title":"为什么写这本书","level":"1.2.1","depth":2,"path":"introduction/whythisbook.md","ref":"introduction/whythisbook.md","articles":[]},"previous":{"title":"简介","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","expandable-chapters","theme-comscore"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"tongji":{"token":"edafd43e7bfd59741049a68eaf8748aa"},"sitemap":{"hostname":"http://nutzbook.wendal.net/"},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"level_number":true,"showLevel":true,"theme":"default","lang":"zh-cn","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"collapsible_menu":true,"variables":{"wendal_net":"https://nutz.cn","wendal_name":"Wendal Chen <wendal1985@gmail.com>"},"gitbook":"*"},"file":{"path":"introduction/introduction.md","mtime":"2015-05-04T07:53:50.216Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-22T14:22:47.669Z"},"basePath":"..","book":{"language":""}});
-        });*/
+        function setBookHeader(){
+            var atext =  $(".search-noresults").find("h1").text();
+            $(".book-header").children("h1").text(atext);
+        }
+
+        $.get(xbook2.getCurUrl(),function(data,status){
+            //alert("数据: " + data + "\n状态: " + status);
+            $(".search-noresults").html(data);
+            setBookHeader();
+        });
+
+        function onClickPreBnt(){
+            xbook2.toPrevPage();
+            refreshPage();
+        }
+
+        function onClickNextBnt(){
+            xbook2.toNextPage();
+            refreshPage();
+        }
+
+        function onClickNavigation(c){
+            //alert("onClickNavigation call");
+            $(c).parent().attr("data-level", function(i,origValue){
+                //console.log(origValue);
+                xbook2.toPage(origValue);
+                refreshPage();
+                return origValue;
+            });
+        }
+
+        function refreshPage(){
+            $.get(xbook2.getCurUrl(),function(data,status){
+                //alert("数据: " + data + "\n状态: " + status);
+                $(".search-noresults").html(data);
+                setBookHeader();
+                refreshSummary();
+            });
+        }
+
+        function refreshSummary(){
+            $(".book-summary li").removeClass("active");
+            $(".book-summary li").find("a").each(function(){
+                if(this.text.trim() ==$(".search-noresults").find("h1").text()){
+                    $(this).parent().addClass("active");
+                }
+            });
+        };
+
+        //修改页面导航页的<a>标签属性，使点击时页面不跳转，同时调用onClickNavigation()方法。
+        $(".book-summary li").find("a").each(function(){
+            $(this).attr("href","javascript:void(0);").attr("onclick","onClickNavigation(this)");
+        });
+
+//        window.gitbook.page.hasChanged()
+//        var gitbook = gitbook || []; //如果gitbook为null或undefined,则将gitbook初始化空对象(即{}),否则gitbook不变。目的是防止gitbook为null或未定义的错误。
+
+
+//        gitbook.push(function() {
+//            gitbook.page.hasChanged({"page":{"title":"前言","level":"1.2","depth":1,"next":{"title":"为什么写这本书","level":"1.2.1","depth":2,"path":"introduction/whythisbook.md","ref":"introduction/whythisbook.md","articles":[]},"previous":{"title":"简介","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","expandable-chapters","theme-comscore"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"tongji":{"token":"edafd43e7bfd59741049a68eaf8748aa"},"sitemap":{"hostname":"http://nutzbook.wendal.net/"},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"level_number":true,"showLevel":true,"theme":"default","lang":"zh-cn","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"collapsible_menu":true,"variables":{"wendal_net":"https://nutz.cn","wendal_name":"Wendal Chen <wendal1985@gmail.com>"},"gitbook":"*"},"file":{"path":"introduction/introduction.md","mtime":"2015-05-04T07:53:50.216Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-22T14:22:47.669Z"},"basePath":"..","book":{"language":""}});
+//        });
     </script>
 </div>
 <!--
