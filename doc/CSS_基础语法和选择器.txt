@@ -98,5 +98,44 @@ td.fancy {
 color:red;
 }
 
+6、CSS 后代选择器 【为派生选择器的另一种说法】
+
+7、CSS 子元素选择器，子选择器使用了大于号（子结合符）。
+如果您不希望选择任意的后代元素，而是希望缩小范围，只选择某个元素的子元素，请使用子元素选择器（Child selector）。
+例如，如果您希望选择只作为 h1 元素子元素的 strong 元素，可以这样写：
+h1 > strong {color:red;}
+
+8、CSS 相邻兄弟选择器
+相邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。
+如果需要选择紧接在另一个元素后的元素，而且二者有相同的父元素，可以使用相邻兄弟选择器（Adjacent sibling selector）。
+例如，如果要增加紧接在 h1 元素后出现的段落的上边距，可以这样写：
+h1 + p {margin-top:50px;}
+这个选择器读作：“选择紧接在 h1 元素后出现的段落，h1 和 p 元素拥有共同的父元素”。
+
+
+9、CSS 伪类用于向某些选择器添加特殊的效果。
+伪类的语法：
+selector : pseudo-class {property: value}
+CSS 类也可与伪类搭配使用。
+selector.class : pseudo-class {property: value}
+例如：
+a:link {color: #FF0000}		/* 未访问的链接 */
+a:visited {color: #00FF00}	/* 已访问的链接 */
+a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
+a:active {color: #0000FF}	/* 选定的链接 */
+
+10、CSS 伪元素用于向某些选择器设置特殊效果。
+伪元素的语法：
+selector:pseudo-element {property:value;}
+CSS 类也可以与伪元素配合使用：
+selector.class:pseudo-element {property:value;}
+例如："first-line" 伪元素用于向文本的首行设置特殊样式。
+p:first-line
+  {
+  color:#ff0000;
+  font-variant:small-caps;
+  }
+
+--------------------
 标签可以通过指定多个class达到应用多个class指定的样式：
 案例：<div class="col-md-2 level2"> 该div标签会同时应用 col-md-2 和 level2 两个类的样式。
