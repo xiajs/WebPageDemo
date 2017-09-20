@@ -37,8 +37,25 @@ xbook2 = (function(){
 
         getCurUrl:function(){
             return this.pageUrls[this.curPageUrlId];
+        },
+
+        resizePage:function(){
+            var browserWidth = $(window).width();
+            var browserHeight = $(window).height();
+            //根据浏览器宽度调整css值
+            $(".book").css("width", browserWidth - 20);
+            $(".book").css("height", browserHeight - 20);
+            $(".book-body").css("max-height", browserHeight - 20);
+            $(".navigation-next").css("left", browserWidth - 70);
+            $(".normal").css("width",browserWidth-360);
+            $(".normal").css("max-height",browserHeight - 20);
         }
     };
+
+    //浏览器窗口调整时更改页面大小
+    $(window).resize(function() {
+        page.resizePage();
+    });
 
     page.pageUrls[0] = "../gitbook/content/page1.txt";
     page.pageUrls[1] = "../gitbook/content/page2.txt";

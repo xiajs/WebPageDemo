@@ -1,0 +1,124 @@
+在JavaScript中创建命名空间的几种写法
+
+在JavaScript中全局变量经常会引起命名冲突，甚至有时侯重写变量也不是按照你想像中的顺序来的，可以看看下面的例子：
+
+var sayHello = function() {
+  return 'Hello var';
+};
+
+function sayHello(name) {
+  return 'Hello function';
+};
+
+sayHello();
+
+最终的输出为
+
+> "Hello var"
+
+为什么会这样，根据 StackOverFlow 的解释，实际上JavaScript的是按如下顺序解析的。
+
+function sayHello(name) {
+  return 'Hello function';
+};
+
+var sayHello = function() {
+  return 'Hello var';
+};
+
+sayHello();
+
+不带var的function声明被提前解析了，因此现代的JS写法建议你始终使用前置var声明所有变量；
+
+避免全局变量名冲突的最好办法还是创建命名空间，下面是在JS中合建命名空间的几种常用方法。
+
+
+通过函数（function)创建
+
+这是一种比较常见的写法，通过声明一个function实现，函数里设置初始变量，公共方法写入prototype，如：
+
+var NameSpace = window.NameSpace || {};
+/*
+Function
+*/
+NameSpace.Hello = function() {
+  this.name = 'world';
+};
+NameSpace.Hello.prototype.sayHello = function(_name) {
+  return 'Hello ' + (_name || this.name);
+};
+var hello = new NameSpace.Hello();
+hello.sayHello();
+
+这种写法比较冗长，不利于压缩代码（jQuery使用fn代替prototype），而且调用前需要先实例化（new)。使用Object写成JSON形式可以写得紧凑些：
+
+通过JSON对象创建Object
+
+/*
+Object
+*/
+var NameSpace = window.NameSpace || {};
+NameSpace.Hello = {
+    name: 'world'
+  , sayHello: function(_name) {
+    return 'Hello ' + (_name || this.name);
+  }
+};
+
+调用
+
+NameSpace.Hello.sayHello('JS');
+> Hello JS;
+
+这种写法比较紧凑，缺点是所有变量都必须声明为公有(public)的，导致所有对这些变量的引用都需要加this指示作用域，写法也略有冗余。
+
+通过闭包(Closure)和Object实现
+
+在闭包中声明好所有变量和方法，并通过一个JSON Object返回公有接口：
+
+var NameSpace = window.NameSpace || {};
+NameSpace.Hello = (function() {
+  //待返回的公有对象
+  var self = {};
+  //私有变量或方法
+  var name = 'world';
+  //公有方法或变量
+  self.sayHello = function(_name) {
+    return 'Hello ' + (_name || name);
+  };
+  //返回的公有对象
+  return self;
+}());
+
+Object和闭包的改进型写法
+
+上个例子在内部对公有方法的调用也需要添加self，如：self.sayHello()； 这里可以最后再返回所有公有接口（方法/变量)的JSON对象。
+
+var NameSpace = window.NameSpace || {};
+NameSpace.Hello = (function() {
+  var name = 'world';
+  var sayHello = function(_name) {
+    return 'Hello ' + (_name || name);
+  };
+  return {
+    sayHello: sayHello
+  };
+}());
+
+Function的简洁写法
+
+这是一种比较简洁的实现，结构紧凑，通过function实例，且调用时无需实例化（new），方案来自stackoverflow：
+
+var NameSpace = window.NameSpace || {};
+NameSpace.Hello = new function() {
+  var self = this;
+  var name = 'world';
+  self.sayHello = function(_name) {
+    return 'Hello ' + (_name || name);
+  };
+};
+
+调用
+
+NameSpace.Hello.sayHello();
+

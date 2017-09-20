@@ -249,6 +249,8 @@
     </div>
 
     <script>
+
+
         var preWidth = 0;
         var prePostion = 0;
         function onClickBnt(){
@@ -304,6 +306,7 @@
                 $(".search-noresults").html(data);
                 setBookHeader();
                 refreshSummary();
+                xbook2.resizePage();
             });
         }
 
@@ -320,6 +323,9 @@
         $(".book-summary li").find("a").each(function(){
             $(this).attr("href","javascript:void(0);").attr("onclick","onClickNavigation(this)");
         });
+
+        xbook2.resizePage();
+
 
 //        window.gitbook.page.hasChanged()
 //        var gitbook = gitbook || []; //如果gitbook为null或undefined,则将gitbook初始化空对象(即{}),否则gitbook不变。目的是防止gitbook为null或未定义的错误。
