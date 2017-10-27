@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- 方式一：
+    网站资料
+    http://mozilla.github.io/pdf.js/getting_started/#download
+    http://mozilla.github.io/pdf.js/examples/
+    例子 ../pdfjs/web/viewer.html
+    文件加载的url 在viewer.js 脚本的10054行设置
+     var DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf';
+    -->
+
+    <!-- 方式二：http://jquery.malsup.com/media/misc.html -->
+    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/media-master/jquery.media.js"></script>
+    <script type="text/javascript">
+        $('a.media').media({width:500, height:400});
+    </script>
+</head>
+<body>
+    <a class="media" href="../doc/demo01.pdf">PDF File</a>
+    <a class="media {type: 'html'}" href="../monitor.html">HTML File</a>
+</body>
+</html>
