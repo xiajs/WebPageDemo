@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        #father
+        {
+            width:450px;
+            height:150px;
+            background-color:red;
+        }
+        #father div
+        {
+            width:100%;
+            height:50px;
+            background-color:green;
+            font-size:12px;
+            margin: 10px 20px;
+        }
+    </style>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#father").prepend("<div id=\"child01\">我是子div1</div>");
+            $("#father").prepend("<div id=\"child02\">我是子div2</div>");
+
+            //$("div").remove("#father div"); //移除div
+        })
+    </script>
+</head>
+<body>
+<div id="father"></div>
+</body>
+</html>

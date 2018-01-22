@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var obj = window.dialogArguments
+//        alert("您传递的参数为：" + obj.name)
+        document.getElementById("contentid").innerText = obj.name;
+
+        window.returnValue="http://www.51js.com";
+        function click111(){
+
+            window.opener.callByReturn("http://www.51js.com");
+        }
+    </script>
+</head>
+<body>
+  我是模式子窗口
+  <div id="contentid" />
+  <button onclick="click111">返回</button>
+</body>
+</html>

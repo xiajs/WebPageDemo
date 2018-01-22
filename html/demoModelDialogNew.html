@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>遮罩层实现，替代以前的模式框</title>
+    <link rel="stylesheet" type="text/css" href="../jquery-easyui-1.2.3/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../jquery-easyui-1.2.3/themes/icon.css">
+    <script type="text/javascript" src="../jquery-easyui-1.2.3/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="../jquery-easyui-1.2.3/jquery.easyui.min.js"></script>
+    <script>
+        function btnOpenClick(){
+            $("#myDialogId").dialog('open');
+        }
+        function btnCloseClick(){
+            $("#myDialogId").dialog('close');
+        }
+        $(document).ready(function() {
+            $("#myDialogId").dialog('close');
+        })
+    </script>
+</head>
+<body>
+  <div>
+      <button onclick="btnOpenClick()"> 打开遮罩层 </button>
+
+      <div id="myDialogId" class="easyui-dialog" modal="true" style="padding:5px;width:400px;height:200px;"
+           title="My Dialog" iconCls="icon-ok"
+           toolbar="#dlg-toolbar" buttons="#dlg-buttons">
+          <ul>
+
+              <li>姓名：<input type="text" value=""></li>
+              <li>住址：<input type="text" value=""></li>
+          </ul>
+          <button onclick="btnCloseClick()"> 关闭遮罩层 </button>
+      </div>
+</body>
+</html>
