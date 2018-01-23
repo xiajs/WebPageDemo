@@ -10,6 +10,10 @@
     <script>
         function btnOpenClick(){
             $("#myDialogId").dialog('open');
+
+            $("#myDialogId").dialog({
+                href:'../jquery-easyui-1.2.3/demo/tabs_href_test.html'
+            });//用单独页面的内容替换弹出框的默认内容
         }
         function btnCloseClick(){
             $("#myDialogId").dialog('close');
@@ -23,7 +27,7 @@
   <div>
       <button onclick="btnOpenClick()"> 打开遮罩层 </button>
 
-      <div id="myDialogId" class="easyui-dialog" modal="true" style="padding:5px;width:400px;height:200px;"
+      <div id="myDialogId" class="easyui-dialog" modal="true" style="width:400px;height:200px;left:100px;top:100px;padding:10px"
            title="My Dialog" iconCls="icon-ok"
            toolbar="#dlg-toolbar" buttons="#dlg-buttons">
           <ul>

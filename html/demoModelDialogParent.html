@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script type="text/javascript" src="../jquery-easyui-1.2.3/jquery-1.4.4.min.js"></script>
     <script>
         //window.showModalDialog 是IE特有标准，最新浏览器默认都不支持。
         //参考文章：http://blog.csdn.net/ts472960087/article/details/45843257
@@ -38,11 +39,19 @@
 
         function callByReturn(retVal){
             retObj = retVal;
-            alert(retObj);
+//            alert(retObj);
+            $('#returnDiv').text( '从子窗口返回内容：' + retObj );
+        }
+
+
+        function click111(){
+
+            //alert('click111');
         }
     </script>
 </head>
 <body>
-    <div id="returnDiv"></div>
+    <div id="returnDiv">显示子窗口返回内容</div>
+    <button onclick="click111()">返回</button>
 </body>
 </html>
