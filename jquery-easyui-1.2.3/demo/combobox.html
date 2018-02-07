@@ -13,6 +13,13 @@
 				valueField:'id',
 				textField:'text'
 			});
+
+
+            $("#cc").combobox({
+                onChange: function (n,o) {
+                    alert("state 下拉框选择内容发生变化!");
+                }
+            });
 		}
 		function setValue(){
 			$('#cc').combobox('setValue','bitem3');

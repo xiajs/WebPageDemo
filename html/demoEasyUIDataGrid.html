@@ -27,9 +27,15 @@
 
     <script>
         $(document).ready(function() {
-            $("#father").prepend("<div id=\"test\"></div>");
-            $("#father").prepend("<div class=\"line\" ></div>");
-            $("#father").prepend("<div id=\"child02\" ></div>");
+            /*
+             append() - 在被选元素的结尾插入内容
+             prepend() - 在被选元素的开头插入内容
+             after() - 在被选元素之后插入内容
+             before() - 在被选元素之前插入内容
+             */
+            $("#father").append("<div id=\"test\"></div>");
+            $("#father").append("<div class=\"line\" ></div>");
+            $("#father").append("<div id=\"child02\" ></div>");
 
             var gridFactory = {
                 createGrid: function (postid,dataurl) {
@@ -120,9 +126,24 @@
             gridFactory.createGrid("test", '../jquery-easyui-1.2.3/demo/datagrid_data.json');
             gridFactory.createGrid("child02",'../jquery-easyui-1.2.3/demo/datagrid_data.json');
         });
+
+        function btnOnLoadClick(c){
+            var i = c.getAttribute('data-optdata');
+            i++;
+            c.setAttribute('data-optdata',i);
+            //alert("第"+i+"次");
+
+            var length = 2;
+            var strdata = '{"code":"001","name":"Name 1","addr":"Address 11","col4":"col4 data"},{"code":"002","name":"Name 2","addr":"Address 13","col4":"col4 data"}';
+            var datajson=JSON.parse('{"total":"'+length+'","rows":['+strdata+']}');
+            $('#test').datagrid('loadData',datajson);
+
+        }
     </script>
 </head>
 <body>
+<a  id="IdBtnOnLoad"  style="margin-top: 10px;" data-optdata="0" onclick="btnOnLoadClick(this)"  > 重新加载 </a>
+<br/>
 <div id="father">
 </div>
 </body>
