@@ -34,6 +34,13 @@
 					});
 				}
 			});
+
+            //添加行记录的双击事件
+            $('#tt').datagrid({
+                onDblClickRow:function(rowIndex, rowData){
+                    alert(rowIndex+" "+JSON.stringify(rowData));
+                }
+            });
 		});
 		
 		function createColumnMenu(){
@@ -65,7 +72,7 @@
 <body>
 	<h1>DataGrid - ContextMenu</h1>
 	<p>Right click the header of datagrid to show context menu.</p>
-	
+    <p>双击行显示行数据.</p>
 	<table id="tt"></table>
 	
 </body>
