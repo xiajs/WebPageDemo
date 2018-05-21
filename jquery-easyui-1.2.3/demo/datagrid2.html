@@ -76,13 +76,16 @@
 				onBeforeLoad:function(){
 					$(this).datagrid('rejectChanges');
 				},
-				onClickRow:function(rowIndex){
-					if (lastIndex != rowIndex){
-						$('#tt').datagrid('endEdit', lastIndex);
-						$('#tt').datagrid('beginEdit', rowIndex);
-					}
-					lastIndex = rowIndex;
-				}
+                onClickRow:function(rowIndex){
+                    if (lastIndex != rowIndex){
+                        $('#tt').datagrid('endEdit', lastIndex);
+                        $('#tt').datagrid('beginEdit', rowIndex);
+                    }
+                    lastIndex = rowIndex;
+                },
+                onDblClickRow:function(rowIndex,rowData){
+                    alert("uuuuuu"+rowData);
+                }
 			});
 		});
 	</script>
