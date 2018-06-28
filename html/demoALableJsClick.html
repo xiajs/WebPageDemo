@@ -10,6 +10,10 @@
             $("body").append("<a id='idALable'  href='http://www.baidu.com'>跳转</a>");
             $("#idALable")[0].click(); //模拟鼠标点击超链接
         }
+
+        alert(encodeURIComponent("abc?bbb"));
+        alert(encodeURIComponent("/page/financeInvoiceApply?mID=20180460&bType=0&pCode=financeInvoiceApply"));
+        alert(decodeURIComponent(encodeURIComponent("/page/financeInvoiceApply?mID=20180460&bType=0&pCode=financeInvoiceApply")));
     </script>
 </head>
 <body>
