@@ -10210,7 +10210,7 @@ jQuery.nodeName = nodeName;
 // AMD loader is present. jQuery is a special case. For more information, see
 // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
-if ( typeof define === "function" && define.amd ) {
+if ( typeof define === "function" &&  (define.amd || define.cmd) ) {
 	define( "jquery", [], function() {
 		return jQuery;
 	} );

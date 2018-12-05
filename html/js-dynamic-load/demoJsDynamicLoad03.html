@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../js/seajs/3.0.0/sea.js"></script>
+    <!--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <script>
+        seajs.config({
+            alias: {
+                'jquery': '../../js/jquery-3.2.1.js'
+            }
+        });
+
+
+        function btnconfigcommit(c) {
+            seajs.use(['../../js/seajs/demo-seajs-func01', 'jquery'], function(hello, $) {
+                hello.sayHello();
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="beautiful-sea" style="background-color: green; width: 100px; height: 50px;"></div>
+<a id="IdKaiPiaoBtn" style="margin-top: 10px;" data-optdata="" onclick="btnconfigcommit(this)"> 点击执行 </a>
+</body>
+</html>
+
+<!--
+jquery1.7以上的都支持模块化加载，只是jquery默认的是支持amd，不支持cmd。所以要用seajs加载jquery，需要稍微改下jquery文件的内容
+把
+1 if (typeof define === "function" && (define.amd)) {
+2     define( "jquery", [], function() {
+3         return jQuery;
+4     });
+5 }
+改成
+1 if (typeof define === "function" && (define.amd || define.cmd)) {
+2     define( "jquery", [], function() {
+3         return jQuery;
+4     });
+5 }
+ -->
