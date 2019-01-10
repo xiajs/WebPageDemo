@@ -38,6 +38,13 @@ varUtil = (function(){
             }
 
             return false;
+        },
+        getNotBlankStr:function(param){
+
+            if (this.isEmptyStr(param)){
+                return;
+            }
+            return param.trim();
         }
     };
     return innerUtil;

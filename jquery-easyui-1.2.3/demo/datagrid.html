@@ -90,8 +90,18 @@
                         alert('pagesize changed');
                     },
                     onSelectPage:function(pageNumber,pageSize){
-                        alert('onSelectPage pageNumber'+pageNumber);
-                        alert('onSelectPage pageNumber'+pageSize);
+                        //alert('onSelectPage pageNumber'+pageNumber);
+                        //alert('onSelectPage pageNumber'+pageSize)
+
+                        //分页切换加载新页面数据
+                        var urlnnnn = "datagrid_data4.json";
+                        if(pageNumber%2==1){
+                            urlnnnn = "datagrid_data4.json";
+                        }else{
+                            urlnnnn = "datagrid_data.json";
+                        }
+                        $('#test').datagrid('options').url=urlnnnn;
+                        $('#test').datagrid('reload');;
                     }
                 });
 			}
